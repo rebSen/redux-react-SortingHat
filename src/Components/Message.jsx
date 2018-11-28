@@ -1,33 +1,17 @@
-import React from 'react';
+import React from 'react'
+import './Message.css'
 
-const Message = ({selectedHouse}) => {
+const Message = ({selectedHouses}) => {
+
     return (
-        <div>
-            <p>{selectedHouse}</p>
+        <div className="yourHouse">
+            <p>{selectedHouses}</p>
         </div>
     )
+    
 }
 
 export default Message;
 
 
 
-
-
-// import React, { Component } from 'react';
-
-
-// class Message extends Component {
-
-// render () {
-//   return (
-//     <div>
-//       <h1>{this.props.selectedHouses}</h1>
-//     </div>
-//   )
-
-//   }
-// }
-
-
-// export default Message;

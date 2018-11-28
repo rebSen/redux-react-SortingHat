@@ -1,34 +1,11 @@
 import React, { Component } from 'react';
-import { Provider } from  'react-redux'
-import { createStore } from  'redux'
-import './App.css';
-import Result from './Containers/Result'
-
-const  houses = [
-  'Serpentard',
-  'Griffondor',
-  'Serdaigle',
-  'Pouffsoufle',
-];
+import Result from './Containers/Result';
+import Reducer from './Reducer';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 
-// const reducer = (state, action) => ({
-//   houses,
-//   selectedHouses:  houses[Math.floor(Math.random() * 4)]
-// })
-
-const hatReducer = (state, action) => {
-  switch(action.type) {
-    case "UPDATE_CHOICE_WITH_MY_INDEX" :
-      return  {selectedHouses : houses[Math.floor(Math.random()  *  4)], houses}
-    default :
-      return state
-  }
-}
-
-
-const  store = createStore(hatReducer);
-
+const store = createStore(Reducer);
 
 class App extends Component {
 
@@ -36,14 +13,16 @@ class App extends Component {
   render() {
     return (
      
-      <Provider  store={store}>
+     <Provider store={store}>
         <div>
-          <Result  />
+          <Result/>
         </div>
-      </Provider>
+     </Provider>
       
     );
   }
 }
+
+
 
 export default App;

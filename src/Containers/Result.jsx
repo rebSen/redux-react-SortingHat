@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Message from '../Components/Message'
 import { connect } from 'react-redux';
-
+import './Result.css'
 
 const action = {
   type: 'UPDATE_CHOICE_WITH_MY_INDEX',
@@ -11,22 +11,21 @@ const action = {
 class Result extends Component {
   constructor(props) {
     super(props); 
-    setInterval(() =>  this.props.dispatch(action), 1000)
+    setInterval(() => this.props.dispatch(action), 1000)
 }
   render() {
-    console.log(this.props.selectedHouses)
+   
 
     return (
-      <div>
+      <div className="welcome">
         <ul>
          {this.props.houses && this.props.houses.map(house  =>  <li  key={house}>{house}</li>)}
         </ul>
-      <Message  selectedHouse={this.props.selectedHouse}  />
+      <Message  selectedHouses={this.props.selectedHouses}  />
   </div>
     )
 }
 }
 
 
-
-export  default  connect(store=>store)(Result)
+export default connect(store => store)(Result);
